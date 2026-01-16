@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>導熱墊片細部製程說明</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --industrial-gray: #2d2d2d;
+            --industrial-blue: #1a365d;
+            --accent-orange: #f59e0b;
+            --text-silver: #e2e8f0;
+            --danger-red: #ef4444;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: var(--text-silver);
+            font-family: 'Noto Sans TC', 'Roboto Mono', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .header-stripe {
+            background: linear-gradient(90deg, var(--industrial-blue), #000);
+            border-bottom: 4px solid var(--accent-orange);
+            padding: 2rem;
+        }
+
+        .process-card {
+            background: rgba(45, 45, 45, 0.8);
+            border-left: 4px solid var(--accent-orange);
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .error-card {
+            background: rgba(60, 30, 30, 0.8);
+            border-left: 4px solid var(--danger-red);
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+
+        .step-number {
+            color: var(--accent-orange);
+            font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        .tech-tag {
+            background: var(--industrial-blue);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .video-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: transparent;
+            border: 1px solid var(--accent-orange);
+            color: var(--accent-orange);
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .video-btn:hover {
+            background-color: var(--accent-orange);
+            color: #000;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.8rem;
+            border-top: 1px solid #333;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <header class="header-stripe">
+        <h1 class="text-3xl font-bold tracking-widest uppercase">Thermal Pad Manufacturing Process</h1>
+        <p class="text-gray-400 mt-2">導熱墊片製程說明 v2.1 </p>
+        
+        <a href="https://youtu.be/pMabHT047sQ" target="_blank" class="video-btn">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 0a10 10 0 1010 10A10 10 0 0010 0zM8 14.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+            觀看製程說明影片
+        </a>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-6">
+        
+        <section class="mb-10">
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <span class="w-2 h-6 bg-amber-500 mr-3"></span>
+                核心製程階段
+            </h2>
+
+            <div class="process-card">
+                <h3><span class="step-number">01.</span> 配料與攪拌 (Compounding)</h3>
+                <p class="text-gray-300 text-sm mt-2">高分子基材與導熱填料精密混合，真空脫泡。</p>
+            </div>
+
+            <div class="process-card">
+                <h3><span class="step-number">02.</span> 塗佈或壓延 (Coating)</h3>
+                <p class="text-gray-300 text-sm mt-2">決定厚度公差（Tolerance）與表面平整度。</p>
+            </div>
+
+            <div class="process-card" id="curing-section">
+                <div class="flex justify-between items-start mb-2">
+                    <h3><span class="step-number">03.</span> 高溫硫化 (High Temperature Vulcanization)</h3>
+                    <span class="tech-tag">Critical Point</span>
+                </div>
+                <p class="text-gray-300">
+                    此為墊片成型的關鍵。透過高溫使矽膠分子發生交聯反應，溫度約100~180度，依照材料不同調配。若此階段控制失誤，將直接導致產品報廢或潛在失效。
+                </p>
+            </div>
+            
+            <div class="process-card">
+                <h3><span class="step-number">04.</span> 沖切與裁切 (Die-Cutting)</h3>
+                <p class="text-gray-300 text-sm mt-2">依照 Drawing 規格進行精密裁切。</p>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-xl font-bold mb-6 flex items-center text-red-500">
+                <span class="w-2 h-6 bg-red-600 mr-3"></span>
+                高溫硫化異常之影響分析
+            </h2>
+
+            <div class="grid grid-cols-1 gap-4">
+                <div class="error-card">
+                    <h4 class="font-bold text-red-400">A. 硫化不足 (Under-curing)</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-300 mt-2">
+                        <li><strong>出油現象 (Oil Bleed)：</strong> 矽油分子未完全交聯，導致在使用過程中溢出，可能污染 PCB 組件。</li>
+                        <li><strong>硬度過低：</strong> 墊片過於黏軟，裁切時易變形，且組裝後容易被擠壓過度導致厚度不均。</li>
+                        <li><strong>電絕緣性下降：</strong> 分子結構不穩定，可能影響擊穿電壓（Breakdown Voltage）。</li>
+                    </ul>
+                </div>
+
+                <div class="error-card">
+                    <h4 class="font-bold text-red-400">B. 過度硫化 (Over-curing)</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-300 mt-2">
+                        <li><strong>表面龜裂與發脆：</strong> 墊片失去彈性，受力時易產生裂紋，影響導熱接觸面。</li>
+                        <li><strong>硬度增加：</strong> 墊片變硬導致壓縮比不足，無法有效填充界面縫隙，熱阻（Thermal Impedance）上升。</li>
+                        <li><strong>附著力喪失：</strong> 墊片表面失去應有的微黏性，在組裝時難以固定。</li>
+                    </ul>
+                </div>
+
+                <div class="error-card">
+                    <h4 class="font-bold text-red-400">C. 硫化不均 (Non-uniform Curing)</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-300 mt-2">
+                        <li><strong>尺寸不穩定：</strong> 不同部位的收縮率不同，導致大尺寸墊片出現翹曲。</li>
+                        <li><strong>性能一致性差：</strong> 同一片墊片上的導熱係數與硬度分布不均，造成散熱效能波動。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+       CREATED BY RANDY CHEN &copy; 2026
+    </footer>
+
+    <script>
+        // 禁用右鍵點擊功能
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        }, false);
+
+        // 禁用常見開發者工具快捷鍵
+        document.addEventListener('keydown', function(e) {
+            if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
